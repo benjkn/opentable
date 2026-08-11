@@ -61,7 +61,7 @@
 .lobby-waiting-pulse{margin:0 0 10px;font:600 18px var(--serif);color:var(--ink);animation:lobby-pulse 1.6s ease-in-out infinite}
 @keyframes lobby-pulse{0%,100%{opacity:1}50%{opacity:.55}}
 
-.hearts-scorecard{position:absolute;z-index:3;left:50%;top:50%;width:min(440px,92%);max-height:82%;overflow:auto;transform:translate(-50%,-50%);padding:21px;border:2px solid var(--ink);border-radius:9px;background:#fffaf1;color:var(--ink);box-shadow:7px 7px 0 #113e34}
+.hearts-scorecard{position:absolute;z-index:5;left:50%;top:50%;width:min(440px,92%);max-height:82%;overflow:auto;transform:translate(-50%,-50%);padding:21px;border:2px solid var(--ink);border-radius:9px;background:#fffaf1;color:var(--ink);box-shadow:7px 7px 0 #113e34}
 .hearts-scorecard h3{margin:0 0 12px;font:600 27px var(--serif)}
 .hearts-broken-notice{position:absolute;z-index:4;left:50%;top:42%;transform:translate(-50%,-50%);padding:9px 18px;border-radius:999px;background:#fffaf1f2;color:var(--red);font:600 15px var(--serif);letter-spacing:-.2px;box-shadow:0 4px 18px #0000002e;pointer-events:none;animation:hearts-broken-pop 2.1s ease both}
 .hearts-broken-notice span{display:block;margin-top:2px;color:var(--muted);font:500 10px var(--mono);text-align:center;letter-spacing:0}
@@ -85,7 +85,7 @@
 
 .connection-payload{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
 .game-card.received{outline:3px solid var(--gold);transform:translateY(-12px)}
-.received-panel{position:absolute;z-index:2;left:50%;top:63%;transform:translateX(-50%);min-width:250px;padding:13px;border-radius:6px;background:#fffaf1;color:var(--ink);text-align:center;box-shadow:0 6px 14px #0b302766}
+.received-panel{position:absolute;z-index:4;left:50%;top:46%;transform:translateX(-50%);min-width:250px;padding:13px;border-radius:6px;background:#fffaf1;color:var(--ink);text-align:center;box-shadow:0 6px 14px #0b302766}
 .received-panel .eyebrow{margin-bottom:4px}
 .received-panel strong{display:block;font:15px var(--serif)}
 .received-panel button{margin-top:10px;padding:8px 10px;border:0;border-radius:3px;background:var(--ink);color:#fff;cursor:pointer;font:10px var(--mono)}
@@ -180,7 +180,10 @@
 .bg-die.inactive{opacity:.4;filter:grayscale(.65) brightness(.82);transform:scale(.94)}
 .bg-roll-row{display:flex;justify-content:center;margin:6px 0 2px}
 .bg-roll-btn{font:600 13px var(--mono);padding:12px 30px;border:0;border-radius:999px;background:linear-gradient(145deg,#f4e2b0,#d4a84a 55%,#b8872e);color:var(--ink);cursor:pointer;box-shadow:0 4px 14px #0005,inset 0 1px 0 #fff6}
-.bg-roll-btn:hover{filter:brightness(1.06);transform:translateY(-1px)}
+.bg-board-dice.empty{background:#0f2a2422;opacity:.55}
+.bg-roll-btn:disabled{opacity:.45;cursor:not-allowed;filter:grayscale(.35);box-shadow:none}
+.bg-roll-btn:disabled:hover{filter:grayscale(.35);transform:none}
+.bg-roll-btn:not(:disabled):hover{filter:brightness(1.06);transform:translateY(-1px)}
 .bg-match-actions{position:static;transform:none;margin-top:22px;padding-top:18px;border-top:1px solid #ffffff18;display:flex;justify-content:center}
 .bg-match-actions .restart.secondary{background:transparent;border:1px solid #6a948566;color:#8aa198;font:10px var(--mono);letter-spacing:.04em;padding:8px 18px;border-radius:6px;cursor:pointer;text-transform:uppercase}
 .bg-match-actions .restart.secondary:hover{background:#ffffff10;color:#c8ddd2;border-color:#8aa19899}
@@ -339,24 +342,29 @@
 }
 
 /* Klondike Solitaire */
-.solitaire-table{background:radial-gradient(ellipse at 50% 0%,#3d8268 0%,#1a5143 45%,#123528 100%);min-height:min(82vh,900px);width:100%;padding:clamp(16px,2.5vw,32px) clamp(12px,2vw,28px);color:#fffdf6;display:flex;flex-direction:column;align-items:stretch;gap:12px;box-sizing:border-box}
+.solitaire-table{background:radial-gradient(ellipse at 50% 0%,#3d8268 0%,#1a5143 45%,#123528 100%);min-height:0;width:100%;padding:clamp(10px,1.5vw,22px) clamp(10px,1.5vw,24px);color:#fffdf6;display:flex;flex-direction:column;align-items:stretch;gap:8px;box-sizing:border-box}
 .solitaire-table .puzzle-status{text-align:center;font:11px var(--mono);color:#c8ddd2;margin:0}
-.sol-board{width:100%;max-width:100%;flex:1;display:flex;flex-direction:column;gap:clamp(14px,2vh,24px);--sol-card-w:min(calc((100% - 6 * clamp(8px,1.2vw,14px)) / 7),104px);--sol-stack:calc(var(--sol-card-w) * -0.76)}
-.sol-top{display:flex;justify-content:space-between;align-items:flex-start;gap:clamp(12px,2vw,24px);width:100%}
+.sol-board{width:100%;max-width:100%;flex:1;display:flex;flex-direction:column;gap:clamp(8px,1.2vh,16px);container-type:inline-size;--sol-card-w:min(calc((100cqi - 6 * clamp(6px,1vw,12px)) / 7),100px);--sol-col-h:calc(var(--sol-card-w) * (7 / 5 + 6 * 0.46))}
+.sol-top{display:flex;justify-content:space-between;align-items:flex-start;gap:clamp(8px,1.5vw,18px);width:100%}
 .sol-stock-waste{display:flex;gap:clamp(8px,1.2vw,14px);align-items:flex-start;flex:none}
 .sol-foundations{display:flex;gap:clamp(6px,1vw,12px);margin-left:auto;flex:none}
-.sol-tableau{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:clamp(8px,1.2vw,14px);align-items:start;width:100%;flex:1}
-.sol-column{width:100%;min-height:calc(var(--sol-card-w) * 7 / 5);position:relative;display:flex;flex-direction:column;align-items:center}
-.sol-column.empty{min-height:calc(var(--sol-card-w) * 7 / 5);width:100%;border:2px dashed #8ab89a66;border-radius:12px;cursor:pointer;background:#00000020;transition:background .15s ease}
+.sol-tableau{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:clamp(6px,1vw,12px);align-items:start;width:100%;flex:1}
+.sol-column{width:100%;min-height:var(--sol-col-h);position:relative;display:flex;flex-direction:column;align-items:center}
+.sol-column.empty{min-height:var(--sol-col-h);width:100%;border:2px dashed #8ab89a66;border-radius:12px;cursor:pointer;background:#00000020;transition:background .15s ease}
 .sol-column.empty:hover{background:#ffffff12}
 .sol-pile{border:0;background:transparent;padding:0;cursor:pointer;display:flex;flex-direction:column;align-items:center}
+.sol-pile.stock{min-height:calc(var(--sol-card-w) * 7 / 5 + 18px)}
+.sol-pile.stock .sol-card.pile-top{width:var(--sol-card-w);height:calc(var(--sol-card-w) * 7 / 5);flex:none;box-sizing:border-box}
 .sol-card{width:var(--sol-card-w);height:calc(var(--sol-card-w) * 7 / 5);border-radius:10px;border:1px solid #08161228;background:linear-gradient(160deg,#fffaf1,#ebe4d8);color:var(--ink);font:700 clamp(13px,1.8vw,18px) var(--serif);display:grid;place-items:center;cursor:pointer;box-shadow:0 2px 6px #00000040, inset 0 1px 0 #fff8;padding:0;flex:none;transition:transform .12s ease,box-shadow .12s ease}
 .sol-card.red{color:var(--red)}
 .sol-card.back{background:repeating-linear-gradient(135deg,#2a5247,#2a5247 6px,#1e3d34 6px,#1e3d34 12px);border-color:#081612;color:transparent}
-.sol-card.empty{background:transparent;border:2px dashed #8ab89a77;box-shadow:none;cursor:default;font-size:clamp(16px,2vw,22px);color:#8ab89a}
+.sol-card.empty{background:transparent;border:1px dashed #8ab89a77;box-shadow:none;cursor:default;font-size:clamp(16px,2vw,22px);color:#8ab89a}
 .sol-card.selected{outline:3px solid var(--gold);transform:translateY(-6px);box-shadow:0 8px 16px #00000055;z-index:20}
-.sol-card.stacked{position:relative;margin-top:var(--sol-stack)}
-.sol-card.stacked:first-child{margin-top:0}
+.sol-card.sol-dragging{opacity:.5;cursor:grabbing}
+.sol-column.sol-drop-target,.sol-column.empty.sol-drop-target,.foundation.sol-drop-target{outline:2px dashed var(--gold);outline-offset:3px;background:#ffffff14}
+.sol-card.stacked{position:relative;margin-top:calc(var(--sol-card-w) * -0.84)}
+.sol-card.stacked-tight{margin-top:calc(var(--sol-card-w) * -0.93)}
+.sol-card.stacked:first-child,.sol-card.stacked-tight:first-child{margin-top:0}
 .sol-column .sol-card.stacked:nth-child(1){z-index:1}
 .sol-column .sol-card.stacked:nth-child(2){z-index:2}
 .sol-column .sol-card.stacked:nth-child(3){z-index:3}
@@ -370,16 +378,22 @@
 .sol-column .sol-card.stacked:nth-child(11){z-index:11}
 .sol-column .sol-card.stacked:nth-child(12){z-index:12}
 .sol-column .sol-card.stacked:nth-child(13){z-index:13}
-.sol-waste{position:relative;display:flex;flex-direction:column;align-items:center}
-.sol-stock-count,.sol-waste-count{font:9px var(--mono);color:#b8d4c4;display:block;text-align:center;margin-top:4px}
+.sol-waste{position:relative;display:flex;flex-direction:row;align-items:flex-start;min-height:calc(var(--sol-card-w) * 7 / 5)}
+.sol-waste-card{flex:none;margin-left:calc(var(--sol-card-w) * -0.5);position:relative}
+.sol-waste-card:first-child{margin-left:0}
+.sol-waste-card.sol-waste-under{pointer-events:none;cursor:default;opacity:.88}
+.sol-waste-card:nth-child(1){z-index:1}
+.sol-waste-card:nth-child(2){z-index:2}
+.sol-waste-card:nth-child(3){z-index:3}
+.sol-stock-count{font:9px var(--mono);color:#b8d4c4;display:block;text-align:center;margin-top:4px;min-height:12px;line-height:12px}
 .sol-toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center;padding-top:8px;border-top:1px solid #ffffff18;width:100%}
 .sol-draw-label{font:10px var(--mono);color:#b8d4c4}
 .solitaire-table .puzzle-level,.solitaire-table .restart{background:#ffffff14;border-color:#ffffff33;color:#fffdf6}
 .solitaire-table .puzzle-level.active,.solitaire-table .puzzle-level:hover{background:var(--gold);color:var(--ink);border-color:var(--gold)}
 .game-layout:has(.solitaire-table){width:min(1280px,100%)}
-.game-area:has(.solitaire-table){place-items:stretch;width:100%}
+.game-area:has(.solitaire-table){place-items:start stretch;align-content:start;width:100%}
 @media(max-width:520px){
-  .sol-board{--sol-card-w:min(calc((100vw - 48px - 6 * 6px) / 7),72px)}
+  .sol-board{--sol-card-w:min(calc((100cqi - 6 * 6px) / 7),80px)}
   .sd-cell,.ks-cell{font-size:16px}
 }
 
@@ -396,6 +410,11 @@
 .patches-art{background:linear-gradient(145deg,#e8f5e9,#c8e6c9);font-size:clamp(32px,7vw,48px)}
 .wend-art{background:linear-gradient(145deg,#fff0e8,#ffd9c8)}
 
+.queens-grid .lg-cell[class*="region-edge"]::before{content:'';position:absolute;inset:3px;pointer-events:none;box-sizing:border-box}
+.queens-grid .lg-cell.region-edge-t::before{border-top:1.5px solid #18372f47}
+.queens-grid .lg-cell.region-edge-r::before{border-right:1.5px solid #18372f47}
+.queens-grid .lg-cell.region-edge-b::before{border-bottom:1.5px solid #18372f47}
+.queens-grid .lg-cell.region-edge-l::before{border-left:1.5px solid #18372f47}
 .queens-grid .lg-cell.marked{color:#8a7560;font:700 18px var(--mono)}
 .queens-grid .lg-cell.queen{font-size:clamp(16px,4vw,24px)}
 .queens-grid .region-0{background:#fde8e8}.queens-grid .region-1{background:#e8f4fd}.queens-grid .region-2{background:#edfde8}
@@ -441,6 +460,19 @@
   padding-bottom:calc(var(--table-hand-height) + 20px);
   box-sizing:border-box;
 }
+.opponent.left,
+.opponent.right{
+  top:8%;
+  bottom:calc(var(--table-hand-height) + 36px);
+  height:auto;
+  transform:none;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  gap:6px;
+}
+.opponent.left{left:0}
+.opponent.right{right:0}
 .hand{
   left:0;
   right:0;
@@ -487,6 +519,39 @@
 }
 .table.bridge-bidding .bidding-box{
   bottom:calc(var(--table-hand-height) + 36px);
+}
+.hearts-table .hand{
+  justify-content:center;
+  padding-left:var(--table-action-width);
+  padding-right:var(--table-action-width);
+}
+.hearts-table .hand .game-card{
+  flex:none;
+  margin-left:calc(var(--card-face-w-hand) * -0.44);
+  position:relative;
+}
+.hearts-table .hand .game-card:first-child{
+  margin-left:0;
+}
+.hearts-table .hand .game-card:nth-child(1){z-index:1}
+.hearts-table .hand .game-card:nth-child(2){z-index:2}
+.hearts-table .hand .game-card:nth-child(3){z-index:3}
+.hearts-table .hand .game-card:nth-child(4){z-index:4}
+.hearts-table .hand .game-card:nth-child(5){z-index:5}
+.hearts-table .hand .game-card:nth-child(6){z-index:6}
+.hearts-table .hand .game-card:nth-child(7){z-index:7}
+.hearts-table .hand .game-card:nth-child(8){z-index:8}
+.hearts-table .hand .game-card:nth-child(9){z-index:9}
+.hearts-table .hand .game-card:nth-child(10){z-index:10}
+.hearts-table .hand .game-card:nth-child(11){z-index:11}
+.hearts-table .hand .game-card:nth-child(12){z-index:12}
+.hearts-table .hand .game-card:nth-child(13){z-index:13}
+.hearts-table .hand-label{
+  z-index:1;
+}
+.hearts-table.hearts-complete .hand,
+.hearts-table.hearts-complete .hand-label{
+  z-index:1;
 }
 .puzzle-table{
   gap:20px;
@@ -624,3 +689,5 @@
 .lobby-auth{margin-top:14px;padding-top:10px;border-top:1px solid var(--line)}
 .lobby-auth summary{cursor:pointer;font:11px var(--mono);color:var(--muted)}
 @media(max-width:900px){.game-layout.has-mp-chat{grid-template-columns:1fr}.mp-chat{max-height:240px}}
+
+.confetti-canvas{position:fixed;inset:0;pointer-events:none;z-index:9999}

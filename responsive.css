@@ -126,7 +126,8 @@
 
   .opponent.left,
   .opponent.right {
-    top: 38%;
+    top: 10%;
+    bottom: calc(var(--table-hand-height) + 28px);
   }
 
   .card-stack {
@@ -207,7 +208,7 @@
   }
 
   .received-panel {
-    top: 56%;
+    top: 42%;
     width: min(300px, 94%);
     padding: 10px;
   }

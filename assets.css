@@ -42,6 +42,53 @@ img.back-card,
   margin-right: 0;
 }
 
+.opponent.top .card-stack img.back-card {
+  margin-right: calc(var(--card-face-w) * -0.58);
+}
+
+/* Side opponents — vertical fan, centered in the side band */
+.opponent.left .card-stack,
+.opponent.right .card-stack {
+  flex-direction: column;
+  align-items: center;
+  max-height: min(46vh, 320px);
+  overflow: hidden;
+  justify-content: center;
+}
+
+.opponent.left .card-stack img.back-card,
+.opponent.right .card-stack img.back-card {
+  width: calc(var(--card-face-w) * 0.7);
+  height: calc(var(--card-face-h) * 0.7);
+  margin-right: 0;
+  margin-top: calc(var(--card-face-h) * 0.7 * -0.8);
+}
+
+.opponent.left .card-stack img.back-card:first-child,
+.opponent.right .card-stack img.back-card:first-child {
+  margin-top: 0;
+}
+
+/* Tighter overlap when many cards remain (side opponents) */
+.opponent.left .card-stack[data-count="10"] img.back-card,
+.opponent.left .card-stack[data-count="11"] img.back-card,
+.opponent.left .card-stack[data-count="12"] img.back-card,
+.opponent.left .card-stack[data-count="13"] img.back-card,
+.opponent.right .card-stack[data-count="10"] img.back-card,
+.opponent.right .card-stack[data-count="11"] img.back-card,
+.opponent.right .card-stack[data-count="12"] img.back-card,
+.opponent.right .card-stack[data-count="13"] img.back-card {
+  margin-top: calc(var(--card-face-h) * 0.7 * -0.86);
+}
+
+.opponent.top .card-stack[data-count="10"] img.back-card,
+.opponent.top .card-stack[data-count="11"] img.back-card,
+.opponent.top .card-stack[data-count="12"] img.back-card,
+.opponent.top .card-stack[data-count="13"] img.back-card {
+  margin-right: calc(var(--card-face-w) * -0.64);
+  margin-top: 0;
+}
+
 .back-card-btn {
   border: 0;
   padding: 0;
@@ -137,11 +184,18 @@ button.game-card.card-img > img {
 }
 
 /* Solitaire — same 5:7 ratio as deck faces */
-.sol-card.back,
 .sol-card.card-img {
   padding: 0 !important;
   border: 0 !important;
   background: transparent !important;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.sol-card.back {
+  padding: 0 !important;
   display: inline-flex !important;
   align-items: center;
   justify-content: center;
@@ -157,6 +211,8 @@ button.game-card.card-img > img {
   border-radius: 10px;
   display: block;
   pointer-events: none;
+  -webkit-user-drag: none;
+  user-select: none;
 }
 
 /* Backgammon — align interactive grid to backgammon-board.png */
