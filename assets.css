@@ -159,11 +159,38 @@ button.game-card.card-img > img {
   pointer-events: none;
 }
 
-/* Backgammon */
+/* Backgammon — align interactive grid to backgammon-board.png */
 .bg-board {
-  background: url(assets/backgammon/backgammon-board.png) center/contain no-repeat;
+  background: url(assets/backgammon/backgammon-board.png) center / 100% 100% no-repeat;
+  aspect-ratio: 2248 / 1520;
+  width: 100%;
+  padding: 8.4% 6.1% 8.4% 6.1%;
   border: 0;
   box-shadow: none;
+  grid-template-columns: 1fr 6.6% 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0;
+}
+
+.bg-board .bg-quadrant {
+  gap: 0;
+  min-height: 0;
+}
+
+.bg-board .bg-point {
+  height: 100%;
+  min-height: 0;
+}
+
+.bg-board .bg-bar-col {
+  background: transparent;
+  padding: 1.5% 0;
+}
+
+.bg-board .bg-checkers {
+  width: min(24px, 88%);
+  max-height: 94%;
+  padding: 1px 0;
 }
 
 .bg-point-fill {
@@ -172,14 +199,16 @@ button.game-card.card-img > img {
 
 .bg-checker.you {
   background: url(assets/checkers/checkers-white.png) center/contain no-repeat;
-  background-size: 90%;
+  background-size: 86%;
   border: 0;
+  box-shadow: none;
 }
 
 .bg-checker.bot {
   background: url(assets/checkers/checkers-green.png) center/contain no-repeat;
-  background-size: 90%;
+  background-size: 86%;
   border: 0;
+  box-shadow: none;
 }
 
 .bg-die {

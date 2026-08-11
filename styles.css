@@ -193,7 +193,7 @@
 .bg-quadrant.top{grid-row:1}
 .bg-quadrant.bottom{grid-row:2}
 .bg-bar-col{grid-row:1/3;grid-column:2;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:4px 0;background:#0f2a23;border-radius:6px}
-.bg-point{flex:1;min-width:0;height:148px;border:0;padding:0;margin:0;display:flex;position:relative;background:transparent;font:inherit;cursor:default;overflow:visible;z-index:0}
+.bg-point{flex:1;min-width:0;height:100%;min-height:0;border:0;padding:0;margin:0;display:flex;position:relative;background:transparent;font:inherit;cursor:default;overflow:visible;z-index:0}
 .bg-point.top{align-items:flex-start;justify-content:center}
 .bg-point.bottom{align-items:flex-end;justify-content:center}
 .bg-point-fill{position:absolute;inset:0;z-index:0;pointer-events:none}
@@ -206,14 +206,14 @@
 .bg-point.selected .bg-point-fill{box-shadow:inset 0 0 0 2px var(--gold)}
 .bg-point.selected{z-index:1}
 .bg-point.destination .bg-point-fill,.bg-tray.destination{box-shadow:inset 0 0 0 3px var(--gold);cursor:pointer}
-.bg-checkers{display:flex;flex-direction:column;align-items:center;width:min(36px,92%);padding:4px 0;pointer-events:none;position:relative;z-index:1;max-height:calc(100% - 4px)}
+.bg-checkers{display:flex;flex-direction:column;align-items:center;width:min(26px,88%);padding:2px 0;pointer-events:none;position:relative;z-index:1;max-height:94%}
 .bg-checkers.tall{filter:drop-shadow(0 3px 4px #0005)}
 .bg-checkers.dense{filter:drop-shadow(0 4px 6px #0006)}
 .bg-checkers.top{flex-direction:column-reverse;justify-content:flex-start;margin-top:2px}
 .bg-checkers.bottom{flex-direction:column;justify-content:flex-end;margin-bottom:2px}
-.bg-checker{width:var(--bg-checker-size,28px);height:var(--bg-checker-size,28px);border-radius:50%;box-shadow:0 2px 4px #0007;flex:none;margin-top:var(--bg-overlap,-14px)}
+.bg-checker{width:var(--bg-checker-size,21px);height:var(--bg-checker-size,21px);border-radius:50%;box-shadow:0 2px 4px #0007;flex:none;margin-top:var(--bg-overlap,-11px)}
 .bg-checkers .bg-checker:first-child{margin-top:0}
-.bg-checkers.top .bg-checker:first-child{margin-top:var(--bg-overlap,-14px);margin-bottom:0}
+.bg-checkers.top .bg-checker:first-child{margin-top:var(--bg-overlap,-11px);margin-bottom:0}
 .bg-checkers.top .bg-checker:last-child{margin-bottom:0;margin-top:0}
 .bg-checker.you{background:linear-gradient(145deg,#fffaf1,#e8dfd0);border:2px solid var(--ink)}
 .bg-checker.bot{background:linear-gradient(145deg,#2a5247,#142e27);border:2px solid #081612}
@@ -244,21 +244,21 @@
 .bg-off-counts{color:#8aa198;letter-spacing:.03em}
 .bg-die{display:grid;place-items:center;width:30px;height:30px;border-radius:6px;background:#fffaf1;color:var(--ink);font:15px var(--serif);box-shadow:1px 2px 3px #0005;transition:opacity .25s ease,transform .25s ease,filter .25s ease,box-shadow .25s ease}
 @media(max-width:720px){
-  .bg-point{height:108px}
-  .bg-checker{--bg-checker-size:22px;--bg-overlap:-10px}
+  .bg-checker{--bg-checker-size:18px;--bg-overlap:-8px}
+  .bg-checkers.top .bg-checker:first-child{margin-top:var(--bg-overlap,-8px)}
   .bg-bar-col{width:34px}
   .bg-trays{width:44px}
-  .bg-tray .bg-checkers{--bg-checker-size:18px;--bg-overlap:-10px}
+  .bg-tray .bg-checkers{--bg-checker-size:16px;--bg-overlap:-8px}
 }
 @media(max-width:520px){
   .bg-board-wrap{flex-direction:column;align-items:stretch}
   .bg-trays{flex-direction:row;width:100%;height:56px}
   .bg-tray{flex-direction:row;justify-content:center;padding:6px 10px}
-  .bg-tray .bg-checkers{flex-direction:row!important;--bg-overlap:-10px}
+  .bg-tray .bg-checkers{flex-direction:row!important;--bg-overlap:-8px}
   .bg-tray .bg-checkers .bg-checker:first-child{margin-left:0;margin-top:0}
-  .bg-tray .bg-checkers .bg-checker{margin-left:var(--bg-overlap,-10px);margin-top:0}
-  .bg-point{height:88px}
-  .bg-checker{--bg-checker-size:18px;--bg-overlap:-10px}
+  .bg-tray .bg-checkers .bg-checker{margin-left:var(--bg-overlap,-8px);margin-top:0}
+  .bg-checker{--bg-checker-size:15px;--bg-overlap:-7px}
+  .bg-checkers.top .bg-checker:first-child{margin-top:var(--bg-overlap,-7px)}
 }
 
 .lobby-panel{width:min(520px,100%);max-height:92vh;overflow:auto;padding:28px;border-radius:14px;background:#fffaf1;box-shadow:0 25px 60px #0004}
