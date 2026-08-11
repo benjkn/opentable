@@ -1,0 +1,257 @@
+/* Game PNG assets — load after styles.css + responsive.css */
+
+/* Standard playing-card face slot (5:7) — deck faces, Tichu specials, anywhere .card-img is used */
+:root {
+  --card-face-h: 94px;
+  --card-face-w: calc(var(--card-face-h) * 5 / 7);
+  --card-face-h-hand: min(88px, 13vw);
+  --card-face-w-hand: calc(var(--card-face-h-hand) * 5 / 7);
+  --card-face-h-trick: 78px;
+  --card-face-w-trick: calc(var(--card-face-h-trick) * 5 / 7);
+  --card-face-h-discard: 148px;
+  --card-face-w-discard: calc(var(--card-face-h-discard) * 5 / 7);
+  --card-face-h-dummy: 52px;
+  --card-face-w-dummy: calc(var(--card-face-h-dummy) * 5 / 7);
+}
+
+img.back-card,
+.back-card-btn .back-card {
+  width: var(--card-face-w);
+  height: var(--card-face-h);
+  max-width: none;
+  border: 0;
+  border-radius: 5px;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  box-shadow: 1px 2px 4px #0005;
+  flex: none;
+  background: transparent;
+}
+
+.card-stack {
+  display: flex;
+  align-items: flex-end;
+}
+
+.card-stack img.back-card {
+  margin-right: -40px;
+}
+
+.card-stack img.back-card:last-child {
+  margin-right: 0;
+}
+
+.back-card-btn {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 8px auto;
+}
+
+button.game-card.card-img {
+  width: var(--card-face-w) !important;
+  height: var(--card-face-h) !important;
+  min-width: 0;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden !important;
+  font-size: 0 !important;
+  grid-template: none !important;
+  flex: none;
+  cursor: pointer;
+}
+
+button.game-card.card-img > img {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  pointer-events: none;
+  border-radius: 5px;
+  box-shadow: 1px 2px 4px #0005;
+}
+
+.hand button.game-card.card-img {
+  width: var(--card-face-w-hand) !important;
+  height: var(--card-face-h-hand) !important;
+  flex: none;
+}
+
+.trick-card button.game-card.card-img {
+  width: var(--card-face-w-trick) !important;
+  height: var(--card-face-h-trick) !important;
+}
+
+.discard button.game-card.card-img {
+  width: var(--card-face-w-discard) !important;
+  height: var(--card-face-h-discard) !important;
+}
+
+.opponent .hand.dummy button.game-card.card-img {
+  width: var(--card-face-w-dummy) !important;
+  height: var(--card-face-h-dummy) !important;
+}
+
+.exchange-slot button.game-card.card-img {
+  width: var(--card-face-w-hand) !important;
+  height: var(--card-face-h-hand) !important;
+}
+
+/* Memory */
+.memory-card {
+  padding: 8px;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+
+.memory-card img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+}
+
+.memory-card.down {
+  background: url(assets/memory/memory-game-back-side.png) center/contain no-repeat;
+  color: transparent;
+}
+
+.memory-card.down img {
+  display: none;
+}
+
+/* Solitaire — same 5:7 ratio as deck faces */
+.sol-card.back,
+.sol-card.card-img {
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.sol-card.back img,
+.sol-card.card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 10px;
+  display: block;
+  pointer-events: none;
+}
+
+/* Backgammon */
+.bg-board {
+  background: url(assets/backgammon/backgammon-board.png) center/contain no-repeat;
+  border: 0;
+  box-shadow: none;
+}
+
+.bg-point-fill {
+  display: none;
+}
+
+.bg-checker.you {
+  background: url(assets/checkers/checkers-white.png) center/contain no-repeat;
+  background-size: 90%;
+  border: 0;
+}
+
+.bg-checker.bot {
+  background: url(assets/checkers/checkers-green.png) center/contain no-repeat;
+  background-size: 90%;
+  border: 0;
+}
+
+.bg-die {
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+  width: auto;
+  height: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bg-die-img {
+  height: 32px;
+  width: auto;
+  object-fit: contain;
+}
+
+.bg-cube-die {
+  background: transparent;
+  border: 0;
+  width: 42px;
+  height: 46px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bg-cube-die .bg-cube-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  pointer-events: none;
+}
+
+.bg-point.selected {
+  outline: 2px solid var(--gold);
+  outline-offset: -2px;
+  z-index: 2;
+}
+
+.bg-point.destination {
+  outline: 3px solid var(--gold);
+  outline-offset: -2px;
+}
+
+.tile-art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 720px) {
+  :root {
+    --table-action-width: 112px;
+    --table-hand-height: 78px;
+    --card-face-h: 72px;
+    --card-face-h-hand: min(72px, 18vw);
+    --card-face-h-discard: 120px;
+  }
+}
+
+@media (max-width: 520px) {
+  :root {
+    --table-action-width: 100px;
+    --table-hand-height: 68px;
+    --card-face-h: 66px;
+    --card-face-h-hand: min(66px, 20vw);
+    --card-face-h-trick: 60px;
+  }
+}
