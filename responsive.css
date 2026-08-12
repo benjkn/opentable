@@ -285,18 +285,18 @@
   /* Backgammon */
   .bg-players-banner {
     flex-wrap: wrap;
-    gap: 8px;
-    padding: 8px 12px;
-    margin-bottom: 8px;
+    gap: 10px;
+    padding: 10px 14px;
+    margin-bottom: 10px;
   }
 
   .bg-player-chip {
-    font-size: 15px;
-    padding: 3px 10px;
+    font-size: 18px;
+    padding: 6px 14px;
   }
 
   .bg-vs {
-    font-size: 11px;
+    font-size: 13px;
   }
 
   .bg-hud {
