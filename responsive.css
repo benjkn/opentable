@@ -257,6 +257,10 @@
     width: 100%;
   }
 
+  .memory-board[data-cols="6"] .memory-card {
+    height: 68px;
+  }
+
   .memory-card {
     height: 76px;
   }

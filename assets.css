@@ -236,17 +236,42 @@ button.game-card.card-img > img {
 .bg-board .bg-point {
   height: 100%;
   min-height: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.bg-board .bg-point.top {
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.bg-board .bg-point.bottom {
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.bg-board .bg-checkers {
+  width: min(24px, 70%);
+  max-height: 92%;
+  padding: 0;
+  margin-inline: auto;
+}
+
+.bg-board .bg-point.top .bg-checkers {
+  margin-top: 5%;
+}
+
+.bg-board .bg-point.bottom .bg-checkers {
+  margin-bottom: 5%;
+}
+
+.bg-board .bg-bar .bg-checkers {
+  width: min(22px, 84%);
 }
 
 .bg-board .bg-bar-col {
   background: transparent;
   padding: 1.5% 0;
-}
-
-.bg-board .bg-checkers {
-  width: min(24px, 88%);
-  max-height: 94%;
-  padding: 1px 0;
 }
 
 .bg-point-fill {
@@ -271,17 +296,24 @@ button.game-card.card-img > img {
   background: transparent;
   box-shadow: none;
   padding: 0;
-  width: auto;
-  height: auto;
+  width: 32px;
+  height: 32px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  box-sizing: border-box;
 }
 
 .bg-die-img {
+  width: 32px;
   height: 32px;
-  width: auto;
   object-fit: contain;
+  display: block;
+}
+
+.bg-board-dice.many .bg-die-img {
+  width: 26px;
+  height: 26px;
 }
 
 .bg-cube-die {
