@@ -74,17 +74,20 @@ img.back-card,
 .opponent.left .card-stack[data-count="11"] img.back-card,
 .opponent.left .card-stack[data-count="12"] img.back-card,
 .opponent.left .card-stack[data-count="13"] img.back-card,
+.opponent.left .card-stack[data-count="14"] img.back-card,
 .opponent.right .card-stack[data-count="10"] img.back-card,
 .opponent.right .card-stack[data-count="11"] img.back-card,
 .opponent.right .card-stack[data-count="12"] img.back-card,
-.opponent.right .card-stack[data-count="13"] img.back-card {
+.opponent.right .card-stack[data-count="13"] img.back-card,
+.opponent.right .card-stack[data-count="14"] img.back-card {
   margin-top: calc(var(--card-face-h) * 0.7 * -0.86);
 }
 
 .opponent.top .card-stack[data-count="10"] img.back-card,
 .opponent.top .card-stack[data-count="11"] img.back-card,
 .opponent.top .card-stack[data-count="12"] img.back-card,
-.opponent.top .card-stack[data-count="13"] img.back-card {
+.opponent.top .card-stack[data-count="13"] img.back-card,
+.opponent.top .card-stack[data-count="14"] img.back-card {
   margin-right: calc(var(--card-face-w) * -0.64);
   margin-top: 0;
 }
@@ -236,7 +239,7 @@ button.game-card.card-img > img {
 .bg-board .bg-point {
   height: 100%;
   min-height: 0;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
 }
 
@@ -251,22 +254,34 @@ button.game-card.card-img > img {
 }
 
 .bg-board .bg-checkers {
-  width: min(24px, 70%);
+  width: min(74%, var(--bg-checker-size, 28px));
   max-height: 92%;
   padding: 0;
   margin-inline: auto;
+  align-self: center;
+}
+
+.bg-board .bg-checker {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  margin-top: calc(var(--bg-overlap, -14px) / var(--bg-checker-size, 28px) * 100%);
+}
+
+.bg-board .bg-checkers .bg-checker:first-child {
+  margin-top: 0;
 }
 
 .bg-board .bg-point.top .bg-checkers {
-  margin-top: 5%;
+  margin-top: 4.8%;
 }
 
 .bg-board .bg-point.bottom .bg-checkers {
-  margin-bottom: 5%;
+  margin-bottom: 4.8%;
 }
 
 .bg-board .bg-bar .bg-checkers {
-  width: min(22px, 84%);
+  width: min(32px, 90%);
 }
 
 .bg-board .bg-bar-col {
@@ -280,14 +295,14 @@ button.game-card.card-img > img {
 
 .bg-checker.you {
   background: url(assets/checkers/checkers-white.png) center/contain no-repeat;
-  background-size: 86%;
+  background-size: 96%;
   border: 0;
   box-shadow: none;
 }
 
 .bg-checker.bot {
   background: url(assets/checkers/checkers-green.png) center/contain no-repeat;
-  background-size: 86%;
+  background-size: 96%;
   border: 0;
   box-shadow: none;
 }

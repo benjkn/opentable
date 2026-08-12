@@ -59,8 +59,30 @@
     </main>
 
     <section class="game-screen" id="gameScreen" aria-hidden="true">
-      <div class="game-header"><button class="back" id="backBtn">← <span>All games</span></button><div class="game-title" id="gameTitle">Hearts</div><div class="game-header-actions"><div class="round-note" id="roundNote">Round 1</div><button type="button" class="multiplayer-btn" id="multiplayerBtn" hidden>◎ Multiplayer</button><button type="button" class="leave-multiplayer-btn" id="leaveMultiplayerBtn" hidden>Leave table</button></div></div>
+      <div class="game-header"><button class="back" id="backBtn">← <span>All games</span></button><div class="game-title" id="gameTitle">Hearts</div><div class="game-header-actions"><div class="round-note" id="roundNote">Round 1</div><button type="button" class="header-auth-btn" id="headerAuthBtn" hidden>Sign in</button><button type="button" class="multiplayer-btn" id="multiplayerBtn" hidden>◎ Multiplayer</button><button type="button" class="leave-multiplayer-btn" id="leaveMultiplayerBtn" hidden>Leave table</button></div></div>
+      <div class="header-auth-panel" id="headerAuthPanel" hidden>
+        <p class="eyebrow">ACCOUNT</p>
+        <div id="headerAuthSignedIn" hidden>
+          <p class="header-auth-lede">Signed in as <strong id="headerAuthEmail"></strong></p>
+          <button type="button" class="lobby-secondary" id="headerLogoutBtn">Sign out</button>
+        </div>
+        <div id="headerAuthSignedOut">
+          <p class="header-auth-lede">Save your display name across devices.</p>
+          <label class="lobby-field"><span>Email</span><input id="headerAuthEmailInput" type="email" autocomplete="email" /></label>
+          <label class="lobby-field"><span>Password</span><input id="headerAuthPasswordInput" type="password" autocomplete="current-password" /></label>
+          <div class="header-auth-actions">
+            <button type="button" id="headerLoginBtn" class="lobby-primary">Sign in</button>
+            <button type="button" id="headerRegisterBtn" class="lobby-secondary">Create account</button>
+          </div>
+        </div>
+        <button type="button" class="header-auth-close" id="headerAuthClose" aria-label="Close">×</button>
+      </div>
       <div id="gameArea" class="game-area"></div>
+      <div class="mp-matchmaking-overlay" id="mpMatchmakingOverlay" hidden aria-live="polite">
+        <p class="mp-wait-pulse">Looking for an opponent…</p>
+        <p class="mp-wait-note">You'll be matched with the next player in the queue. The game starts automatically when someone joins.</p>
+        <button type="button" class="mp-wait-cancel" id="mpMatchmakingCancel">Cancel</button>
+      </div>
     </section>
     <div class="toast" id="toast"></div>
     <section class="multiplayer-lobby" id="multiplayerLobby" aria-hidden="true">
@@ -71,6 +93,43 @@
         <button type="button" class="lobby-secondary" id="closeMultiplayer">Back to game</button>
       </div>
     </section>
+    <section class="multiplayer-lobby mp-info-modal" id="mpInfoModal" aria-hidden="true">
+      <div class="lobby-panel">
+        <p class="eyebrow">MULTIPLAYER</p>
+        <h2 id="mpInfoModalTitle">Opponent disconnected</h2>
+        <p class="lobby-lede" id="mpInfoModalBody"></p>
+        <button type="button" class="lobby-primary" id="mpInfoModalOk">Continue solo</button>
+      </div>
+    </section>
+    <div class="feedback-widget" id="feedbackWidget">
+      <button type="button" class="feedback-bubble" id="feedbackBubble" aria-expanded="false" aria-controls="feedbackPanel" aria-label="Report a bug">
+        <span class="feedback-bubble-icon" aria-hidden="true">?</span>
+        <span class="feedback-bubble-label">Help</span>
+      </button>
+      <div class="feedback-panel" id="feedbackPanel" role="dialog" aria-labelledby="feedbackTitle" hidden>
+        <div class="feedback-panel-head">
+          <div>
+            <p class="eyebrow">SUPPORT</p>
+            <h2 class="feedback-title" id="feedbackTitle">Report a bug</h2>
+          </div>
+          <button type="button" class="feedback-close" id="feedbackClose" aria-label="Close">×</button>
+        </div>
+        <p class="feedback-note">Something broken? Tell us what happened. To follow progress on your report—or to add photos, links, and other details—<a id="feedbackGithubLink" href="https://github.com/benjkn/opentable/issues/new?labels=bug" target="_blank" rel="noopener noreferrer">open an issue on GitHub</a>.</p>
+        <form class="feedback-form" id="feedbackForm">
+          <label class="feedback-field">
+            <span>Your name (optional)</span>
+            <input type="text" id="feedbackName" name="name" maxlength="24" placeholder="How we should address you" autocomplete="nickname" />
+          </label>
+          <label class="feedback-field">
+            <span>What went wrong?</span>
+            <textarea id="feedbackMessage" name="message" rows="5" maxlength="2000" placeholder="Steps to reproduce, what you expected, what happened instead…" required></textarea>
+          </label>
+          <p class="feedback-error" id="feedbackError" role="alert"></p>
+          <p class="feedback-success" id="feedbackSuccess" hidden role="status">Thanks! Your report was sent.</p>
+          <button type="submit" class="feedback-submit" id="feedbackSubmit">Send feedback</button>
+        </form>
+      </div>
+    </div>
     <script>
       globalThis.__TABLETOP_GAME_SERVER__ = 'wss://tabletop-game-server-79623660808.me-west1.run.app';
       globalThis.__TABLETOP_API__ = 'https://tabletop-game-server-79623660808.me-west1.run.app';
