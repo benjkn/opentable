@@ -430,8 +430,7 @@
   }
 
   .game-tile {
-    height: 200px;
-    min-height: 186px;
+    min-height: 0;
   }
 
   .tile-copy {
@@ -448,7 +447,7 @@
   }
 
   .tile-art {
-    min-height: 72px;
+    aspect-ratio: 246 / 208;
   }
 
   .play-button {
@@ -541,8 +540,10 @@
 
   .tile-art {
     width: 34%;
+    aspect-ratio: auto;
     min-height: 96px;
     height: auto;
+    align-self: stretch;
     flex: none;
   }
 
@@ -592,6 +593,7 @@
 
   .game-tile .tile-art {
     width: 32%;
+    aspect-ratio: auto;
     min-height: 88px;
   }
 }
