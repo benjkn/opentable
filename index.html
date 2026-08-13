@@ -68,9 +68,12 @@
       </div>
     </section>
     <div class="header-auth-panel" id="headerAuthPanel" hidden>
+      <div class="header-auth-loading" id="headerAuthLoading" hidden aria-live="polite" aria-label="Signing in">
+        <div class="header-auth-spinner" aria-hidden="true"></div>
+      </div>
       <p class="eyebrow">ACCOUNT</p>
       <div id="headerAuthSignedIn" hidden>
-        <p class="header-auth-lede">Signed in as <strong id="headerAuthEmail"></strong></p>
+        <p class="header-auth-lede">Signed in as <strong id="headerAuthDisplayName"></strong></p>
         <button type="button" class="lobby-secondary" id="headerLogoutBtn">Sign out</button>
       </div>
       <div id="headerAuthSignedOut">

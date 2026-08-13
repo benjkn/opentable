@@ -18,6 +18,10 @@
 .header-auth-btn.signed-in{border-color:#659784;background:#edf5f0}
 .topbar-auth-btn{flex:none}
 .header-auth-panel{position:fixed;top:var(--topbar-height,82px);right:clamp(24px,5vw,76px);z-index:20;width:min(320px,calc(100vw - 32px));padding:16px 18px 14px;border:1px solid #113e34;border-radius:10px;background:#fffaf1;color:var(--ink);box-shadow:0 14px 32px #113e3428}
+.header-auth-loading{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;border-radius:10px;background:#fffaf1d9;z-index:2}
+.header-auth-loading[hidden]{display:none!important}
+.header-auth-spinner{width:28px;height:28px;border:3px solid #c5d4cc;border-top-color:var(--ink);border-radius:50%;animation:header-auth-spin .7s linear infinite}
+@keyframes header-auth-spin{to{transform:rotate(360deg)}}
 body.in-game .header-auth-panel{top:71px;right:4vw}
 .header-auth-panel[hidden]{display:none!important}
 .header-auth-panel .lobby-field{margin-bottom:10px}
