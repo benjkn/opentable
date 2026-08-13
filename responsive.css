@@ -8,6 +8,7 @@
   }
 
   .topbar {
+    --topbar-height: 68px;
     height: 68px;
     gap: 16px;
   }
@@ -37,6 +38,7 @@
   }
 
   .topbar {
+    --topbar-height: 60px;
     height: 60px;
     gap: 12px;
   }

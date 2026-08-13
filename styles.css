@@ -16,7 +16,9 @@
 .header-auth-btn{border:1px solid #8aa198;border-radius:3px;background:#fffdf6;color:var(--ink);padding:8px 11px;font:10px var(--mono);cursor:pointer;white-space:nowrap}
 .header-auth-btn:hover{background:var(--ink);color:#fff}
 .header-auth-btn.signed-in{border-color:#659784;background:#edf5f0}
-.header-auth-panel{position:absolute;top:71px;right:4vw;z-index:12;width:min(320px,calc(100vw - 32px));padding:16px 18px 14px;border:1px solid #113e34;border-radius:10px;background:#fffaf1;color:var(--ink);box-shadow:0 14px 32px #113e3428}
+.topbar-auth-btn{flex:none}
+.header-auth-panel{position:fixed;top:var(--topbar-height,82px);right:clamp(24px,5vw,76px);z-index:20;width:min(320px,calc(100vw - 32px));padding:16px 18px 14px;border:1px solid #113e34;border-radius:10px;background:#fffaf1;color:var(--ink);box-shadow:0 14px 32px #113e3428}
+body.in-game .header-auth-panel{top:71px;right:4vw}
 .header-auth-panel[hidden]{display:none!important}
 .header-auth-panel .lobby-field{margin-bottom:10px}
 .header-auth-lede{margin:0 0 12px;font-size:12px;line-height:1.45;color:#63746c}

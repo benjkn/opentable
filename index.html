@@ -33,7 +33,7 @@
   </head>
   <body>
     <main class="shell">
-      <header class="topbar"><a class="brand" href="#home"><span class="brand-mark">♠</span>tabletop</a><span class="header-note">Free online card games &amp; board games</span><button class="sound" id="soundBtn">♬ <span>sound on</span></button></header>
+      <header class="topbar"><a class="brand" href="#home"><span class="brand-mark">♠</span>tabletop</a><span class="header-note">Free online card games &amp; board games</span><button type="button" class="header-auth-btn topbar-auth-btn" id="topbarAuthBtn" hidden>Sign in</button><button class="sound" id="soundBtn">♬ <span>sound on</span></button></header>
       <section id="home" class="landing">
         <div class="games-grid">
           <article class="game-tile backgammon" data-game="backgammon" tabindex="0" role="link" aria-label="Play Backgammon"><div class="tile-art"><img src="assets/backgammon/backgammon-game-logo.png" alt=""></div><div class="tile-copy"><p class="game-number">01 · RACE</p><h3>Backgammon</h3><p>Online Backgammon with dice, hits &amp; doubling cube.</p><span class="play-button">Play Backgammon <span>→</span></span></div></article>
@@ -60,27 +60,6 @@
 
     <section class="game-screen" id="gameScreen" aria-hidden="true">
       <div class="game-header"><button class="back" id="backBtn">← <span>All games</span></button><div class="game-title" id="gameTitle">Hearts</div><div class="game-header-actions"><div class="round-note" id="roundNote">Round 1</div><button type="button" class="header-auth-btn" id="headerAuthBtn" hidden>Sign in</button><button type="button" class="multiplayer-btn" id="multiplayerBtn" hidden>◎ Multiplayer</button><button type="button" class="leave-multiplayer-btn" id="leaveMultiplayerBtn" hidden>Leave table</button></div></div>
-      <div class="header-auth-panel" id="headerAuthPanel" hidden>
-        <p class="eyebrow">ACCOUNT</p>
-        <div id="headerAuthSignedIn" hidden>
-          <p class="header-auth-lede">Signed in as <strong id="headerAuthEmail"></strong></p>
-          <button type="button" class="lobby-secondary" id="headerLogoutBtn">Sign out</button>
-        </div>
-        <div id="headerAuthSignedOut">
-          <p class="header-auth-lede">Save your display name across devices.</p>
-          <div class="header-auth-oauth" id="headerAuthOAuth" hidden>
-            <div id="googleSignInHost" class="google-signin-host"></div>
-          </div>
-          <p class="header-auth-divider" id="headerAuthDivider" hidden>or use email</p>
-          <label class="lobby-field"><span>Email</span><input id="headerAuthEmailInput" type="email" autocomplete="email" /></label>
-          <label class="lobby-field"><span>Password</span><input id="headerAuthPasswordInput" type="password" autocomplete="current-password" /></label>
-          <div class="header-auth-actions">
-            <button type="button" id="headerLoginBtn" class="lobby-primary">Sign in</button>
-            <button type="button" id="headerRegisterBtn" class="lobby-secondary">Create account</button>
-          </div>
-        </div>
-        <button type="button" class="header-auth-close" id="headerAuthClose" aria-label="Close">×</button>
-      </div>
       <div id="gameArea" class="game-area"></div>
       <div class="mp-matchmaking-overlay" id="mpMatchmakingOverlay" hidden aria-live="polite">
         <p class="mp-wait-pulse">Looking for an opponent…</p>
@@ -88,6 +67,27 @@
         <button type="button" class="mp-wait-cancel" id="mpMatchmakingCancel">Cancel</button>
       </div>
     </section>
+    <div class="header-auth-panel" id="headerAuthPanel" hidden>
+      <p class="eyebrow">ACCOUNT</p>
+      <div id="headerAuthSignedIn" hidden>
+        <p class="header-auth-lede">Signed in as <strong id="headerAuthEmail"></strong></p>
+        <button type="button" class="lobby-secondary" id="headerLogoutBtn">Sign out</button>
+      </div>
+      <div id="headerAuthSignedOut">
+        <p class="header-auth-lede">Save your display name across devices.</p>
+        <div class="header-auth-oauth" id="headerAuthOAuth" hidden>
+          <div id="googleSignInHost" class="google-signin-host"></div>
+        </div>
+        <p class="header-auth-divider" id="headerAuthDivider" hidden>or use email</p>
+        <label class="lobby-field"><span>Email</span><input id="headerAuthEmailInput" type="email" autocomplete="email" /></label>
+        <label class="lobby-field"><span>Password</span><input id="headerAuthPasswordInput" type="password" autocomplete="current-password" /></label>
+        <div class="header-auth-actions">
+          <button type="button" id="headerLoginBtn" class="lobby-primary">Sign in</button>
+          <button type="button" id="headerRegisterBtn" class="lobby-secondary">Create account</button>
+        </div>
+      </div>
+      <button type="button" class="header-auth-close" id="headerAuthClose" aria-label="Close">×</button>
+    </div>
     <div class="toast" id="toast"></div>
     <section class="multiplayer-lobby" id="multiplayerLobby" aria-hidden="true">
       <div class="lobby-panel">
