@@ -244,18 +244,18 @@ button.game-card.card-img > img {
 }
 
 .bg-board .bg-point.top {
-  align-items: flex-end;
+  align-items: flex-start;
   justify-content: center;
 }
 
 .bg-board .bg-point.bottom {
-  align-items: flex-start;
+  align-items: flex-end;
   justify-content: center;
 }
 
 .bg-board .bg-checkers {
   width: min(74%, var(--bg-checker-size, 28px));
-  max-height: 92%;
+  max-height: 100%;
   padding: 0;
   margin-inline: auto;
 }
@@ -271,12 +271,16 @@ button.game-card.card-img > img {
   margin-top: 0;
 }
 
+/* Top points: triangle base is at the outer (top) edge — stack grows toward center. */
 .bg-board .bg-point.top .bg-checkers {
-  margin-bottom: 1%;
+  justify-content: flex-start;
+  margin: 0;
 }
 
+/* Bottom points: triangle base is at the outer (bottom) edge — stack grows toward center. */
 .bg-board .bg-point.bottom .bg-checkers {
-  margin-top: 1%;
+  justify-content: flex-end;
+  margin: 0;
 }
 
 .bg-board .bg-bar .bg-checkers {
