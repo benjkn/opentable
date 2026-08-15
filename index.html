@@ -64,6 +64,17 @@
       <div class="mp-matchmaking-overlay" id="mpMatchmakingOverlay" hidden aria-live="polite">
         <p class="mp-wait-pulse">Looking for an opponent…</p>
         <p class="mp-wait-note">You'll be matched with the next player in the queue. The game starts automatically when someone joins.</p>
+        <details class="mp-wait-invite lobby-invite-fallback">
+          <summary>Invite a friend instead</summary>
+          <p class="mp-wait-note">Share a direct link to play someone specific.</p>
+          <div class="lobby-invite-link">
+            <label class="lobby-field">
+              <span>Invite link</span>
+              <input id="mpInviteLinkField" type="text" readonly />
+            </label>
+            <button type="button" id="mpCopyInviteBtn" class="lobby-secondary">Copy invite link</button>
+          </div>
+        </details>
         <button type="button" class="mp-wait-cancel" id="mpMatchmakingCancel">Cancel</button>
       </div>
     </section>

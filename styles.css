@@ -9,10 +9,19 @@
 .mp-wait-note{margin:0 0 12px;font-size:13px;line-height:1.45;color:#5a6d80}
 .mp-wait-cancel{margin-top:4px;padding:8px 14px;border:0;border-radius:4px;background:#dce6de;color:var(--ink);font:11px var(--mono);cursor:pointer}
 .mp-wait-cancel:hover{background:#cfdad2}
-.mp-matchmaking-overlay{position:absolute;inset:0;z-index:8;display:grid;place-content:center;padding:24px;background:#18372f55;backdrop-filter:blur(2px);text-align:center}
+.mp-matchmaking-overlay{position:fixed;inset:0;z-index:11;display:grid;place-content:center;padding:24px;background:#18372f55;backdrop-filter:blur(2px);text-align:center}
 .mp-matchmaking-overlay[hidden]{display:none!important}
 .mp-matchmaking-overlay .mp-wait-pulse,.mp-matchmaking-overlay .mp-wait-note{max-width:min(420px,90vw);margin-left:auto;margin-right:auto;padding:0 16px;color:#eef6f1}
 .mp-matchmaking-overlay .mp-wait-note{color:#dceee5;margin-bottom:12px}
+.mp-matchmaking-overlay .mp-wait-invite{max-width:min(420px,90vw);margin:0 auto 12px;text-align:left}
+.mp-matchmaking-overlay .mp-wait-invite summary{color:#eef6f1}
+.mp-matchmaking-overlay .mp-wait-invite .lobby-lede,.mp-matchmaking-overlay .mp-wait-invite .mp-wait-note{color:#dceee5;font-size:12px;margin-bottom:8px}
+.mp-matchmaking-overlay .mp-wait-invite .lobby-field span{color:#eef6f1}
+.mp-matchmaking-overlay .mp-wait-invite .lobby-secondary{background:#eef6f1;color:var(--ink)}
+.bg-no-moves-flash{position:fixed;inset:0;z-index:12;display:grid;place-content:center;background:#18372f55;pointer-events:none}
+.bg-no-moves-flash-inner{text-align:center;padding:20px 28px;border-radius:12px;background:#0f2a24dd;border:1px solid #5a8a78;box-shadow:0 12px 32px #0006}
+.bg-no-moves-icon{display:block;font-size:44px;line-height:1;margin:0 auto 10px;color:#eef6f1}
+.bg-no-moves-text{margin:0;font:600 18px var(--serif);color:#eef6f1;letter-spacing:-.2px}
 .header-auth-btn{border:1px solid #8aa198;border-radius:3px;background:#fffdf6;color:var(--ink);padding:8px 11px;font:10px var(--mono);cursor:pointer;white-space:nowrap}
 .header-auth-btn:hover{background:var(--ink);color:#fff}
 .header-auth-btn.signed-in{border-color:#659784;background:#edf5f0}
