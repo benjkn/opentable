@@ -669,6 +669,60 @@ body.in-game .header-auth-panel{top:71px;right:4vw}
   justify-content:center;
   margin-left:0;
 }
+.bridge-table .hand:not(.dummy){
+  justify-content:center;
+  padding-left:var(--table-action-width);
+  padding-right:var(--table-action-width);
+}
+.bridge-table .hand:not(.dummy) .game-card{
+  flex:none;
+  margin-left:calc(var(--card-face-w-hand) * -0.44);
+  position:relative;
+}
+.bridge-table .hand:not(.dummy) .game-card:first-child{
+  margin-left:0;
+}
+.bridge-table .hand:not(.dummy) .game-card:nth-child(1){z-index:1}
+.bridge-table .hand:not(.dummy) .game-card:nth-child(2){z-index:2}
+.bridge-table .hand:not(.dummy) .game-card:nth-child(3){z-index:3}
+.bridge-table .hand:not(.dummy) .game-card:nth-child(4){z-index:4}
+.bridge-table .hand:not(.dummy) .game-card:nth-child(5){z-index:5}
+.bridge-table .hand:not(.dummy) .game-card:nth-child(6){z-index:6}
+.bridge-table .hand:not(.dummy) .game-card:nth-child(7){z-index:7}
+.bridge-table .hand:not(.dummy) .game-card:nth-child(8){z-index:8}
+.bridge-table .hand:not(.dummy) .game-card:nth-child(9){z-index:9}
+.bridge-table .hand:not(.dummy) .game-card:nth-child(10){z-index:10}
+.bridge-table .hand:not(.dummy) .game-card:nth-child(11){z-index:11}
+.bridge-table .hand:not(.dummy) .game-card:nth-child(12){z-index:12}
+.bridge-table .hand:not(.dummy) .game-card:nth-child(13){z-index:13}
+.bridge-table .hand-label{
+  left:50%;
+  right:auto;
+  transform:translateX(-50%);
+  text-align:center;
+  max-width:calc(100% - 2 * var(--table-action-width));
+}
+.bridge-table.bridge-playing .opponent.top .hand.dummy{
+  flex-wrap:nowrap;
+  overflow-x:auto;
+  max-width:min(94%,680px);
+}
+.bridge-table.bridge-playing .opponent.top .hand.dummy .game-card{
+  flex:none;
+  margin-left:calc(var(--card-face-w-dummy) * -0.35);
+}
+.bridge-table.bridge-playing .opponent.top .hand.dummy .game-card:first-child{
+  margin-left:0;
+}
+.bridge-table.bridge-playing .opponent.left .hand.dummy,
+.bridge-table.bridge-playing .opponent.right .hand.dummy{
+  max-width:min(180px,30vw);
+  max-height:none;
+  flex-direction:column;
+  flex-wrap:nowrap;
+  overflow-y:auto;
+  align-content:center;
+}
 .puzzle-table{
   gap:20px;
   padding-bottom:12px;
