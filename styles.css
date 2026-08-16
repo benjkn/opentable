@@ -415,7 +415,7 @@ body.in-game .header-auth-panel{top:71px;right:4vw}
 /* Klondike Solitaire */
 .solitaire-table{background:radial-gradient(ellipse at 50% 0%,#3d8268 0%,#1a5143 45%,#123528 100%);min-height:0;width:100%;padding:clamp(10px,1.5vw,22px) clamp(10px,1.5vw,24px);color:#fffdf6;display:flex;flex-direction:column;align-items:stretch;gap:8px;box-sizing:border-box}
 .solitaire-table .puzzle-status{text-align:center;font:11px var(--mono);color:#c8ddd2;margin:0}
-.sol-board{width:100%;max-width:100%;flex:1;display:flex;flex-direction:column;gap:clamp(8px,1.2vh,16px);container-type:inline-size;--sol-card-w:min(calc((100cqi - 6 * clamp(6px,1vw,12px)) / 7),100px);--sol-col-h:calc(var(--sol-card-w) * (7 / 5 + 6 * 0.46))}
+.sol-board{width:100%;max-width:100%;flex:1;display:flex;flex-direction:column;gap:clamp(8px,1.2vh,16px);container-type:inline-size;--sol-card-w:min(calc((100cqi - 6 * clamp(6px,1vw,12px)) / 7),100px);--sol-stack-step:0.34;--sol-col-h:calc(var(--sol-card-w) * (7 / 5 + 6 * var(--sol-stack-step)))}
 .sol-top{display:flex;justify-content:space-between;align-items:flex-start;gap:clamp(8px,1.5vw,18px);width:100%}
 .sol-stock-waste{display:flex;gap:clamp(8px,1.2vw,14px);align-items:flex-start;flex:none}
 .sol-foundations{display:flex;gap:clamp(6px,1vw,12px);margin-left:auto;flex:none}
@@ -424,6 +424,7 @@ body.in-game .header-auth-panel{top:71px;right:4vw}
 .sol-column.empty{min-height:var(--sol-col-h);width:100%;border:2px dashed #8ab89a66;border-radius:12px;cursor:pointer;background:#00000020;transition:background .15s ease}
 .sol-column.empty:hover{background:#ffffff12}
 .sol-pile{border:0;background:transparent;padding:0;cursor:pointer;display:flex;flex-direction:column;align-items:center}
+.sol-pile.foundation:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:12px}
 .sol-pile.stock{min-height:calc(var(--sol-card-w) * 7 / 5 + 18px)}
 .sol-pile.stock .sol-card.pile-top{width:var(--sol-card-w);height:calc(var(--sol-card-w) * 7 / 5);flex:none;box-sizing:border-box}
 .sol-card{width:var(--sol-card-w);height:calc(var(--sol-card-w) * 7 / 5);border-radius:10px;border:1px solid #08161228;background:linear-gradient(160deg,#fffaf1,#ebe4d8);color:var(--ink);font:700 clamp(13px,1.8vw,18px) var(--serif);display:grid;place-items:center;cursor:pointer;box-shadow:0 2px 6px #00000040, inset 0 1px 0 #fff8;padding:0;flex:none;transition:transform .12s ease,box-shadow .12s ease}
@@ -433,8 +434,8 @@ body.in-game .header-auth-panel{top:71px;right:4vw}
 .sol-card.selected{outline:3px solid var(--gold);transform:translateY(-6px);box-shadow:0 8px 16px #00000055;z-index:20}
 .sol-card.sol-dragging{opacity:.5;cursor:grabbing}
 .sol-column.sol-drop-target,.sol-column.empty.sol-drop-target,.foundation.sol-drop-target{outline:2px dashed var(--gold);outline-offset:3px;background:#ffffff14}
-.sol-card.stacked{position:relative;margin-top:calc(var(--sol-card-w) * -0.84)}
-.sol-card.stacked-tight{margin-top:calc(var(--sol-card-w) * -0.93)}
+.sol-card.stacked{position:relative;margin-top:calc(var(--sol-card-w) * -0.90)}
+.sol-card.stacked-tight{margin-top:calc(var(--sol-card-w) * -0.96)}
 .sol-card.stacked:first-child,.sol-card.stacked-tight:first-child{margin-top:0}
 .sol-column .sol-card.stacked:nth-child(1){z-index:1}
 .sol-column .sol-card.stacked:nth-child(2){z-index:2}
@@ -460,7 +461,8 @@ body.in-game .header-auth-panel{top:71px;right:4vw}
 .sol-toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center;padding-top:8px;border-top:1px solid #ffffff18;width:100%}
 .sol-draw-label{font:10px var(--mono);color:#b8d4c4}
 .solitaire-table .puzzle-level,.solitaire-table .restart{background:#ffffff14;border-color:#ffffff33;color:#fffdf6}
-.solitaire-table .puzzle-level.active,.solitaire-table .puzzle-level:hover{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+.solitaire-table .puzzle-level:disabled{opacity:.4;cursor:not-allowed}
+.solitaire-table .puzzle-level.active,.solitaire-table .puzzle-level:hover:not(:disabled){background:var(--gold);color:var(--ink);border-color:var(--gold)}
 .game-layout:has(.solitaire-table){width:min(1280px,100%)}
 .game-area:has(.solitaire-table){place-items:start stretch;align-content:start;width:100%}
 @media(max-width:520px){
