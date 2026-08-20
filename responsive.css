@@ -62,9 +62,9 @@
     text-align: center;
   }
 
-  /* Game shell */
+  /* Game shell — flex column; scroll lives in .game-area when needed */
   .game-screen {
-    overflow-x: hidden;
+    overflow: hidden;
   }
 
   .game-header {
@@ -112,8 +112,6 @@
     padding: 12px 8px max(12px, env(safe-area-inset-bottom));
     place-items: start center;
     align-content: start;
-    min-height: calc(100vh - 56px);
-    min-height: calc(100dvh - 56px);
   }
 
   .game-layout {

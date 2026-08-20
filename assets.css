@@ -12,6 +12,8 @@
   --card-face-w-discard: calc(var(--card-face-h-discard) * 5 / 7);
   --card-face-h-dummy: 52px;
   --card-face-w-dummy: calc(var(--card-face-h-dummy) * 5 / 7);
+  --tichu-point-card-h: 40px;
+  --tichu-point-card-w: calc(var(--tichu-point-card-h) * 5 / 7);
 }
 
 img.back-card,
@@ -431,5 +433,6 @@ button.game-card.card-img > img {
     --card-face-h: 66px;
     --card-face-h-hand: min(66px, 20vw);
     --card-face-h-trick: 60px;
+    --tichu-point-card-h: 32px;
   }
 }
