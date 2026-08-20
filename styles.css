@@ -221,14 +221,15 @@ body.in-game .header-auth-panel{top:71px;right:4vw}
 .tichu-scoreboard-overlay .hearts-scorecard{position:relative;z-index:1;left:auto;top:auto;transform:none;max-height:calc(100% - 24px)}
 .tichu-score-teams{margin:-4px 0 12px;color:#63746c;font:10px var(--mono)}
 .tichu-score-empty{margin:0 0 8px;color:#63746c;font:11px var(--mono)}
-.tichu-hand-points{margin:0 0 14px;padding-top:2px}
-.tichu-hand-points .eyebrow{margin:0 0 8px;color:#63746c;font:9px var(--mono);letter-spacing:.08em;text-transform:uppercase}
-.tichu-point-row{display:grid;grid-template-columns:minmax(3.2em,auto) 1fr auto;gap:8px;align-items:center;margin-bottom:8px}
-.tichu-point-row:last-child{margin-bottom:0}
-.tichu-point-name{font:600 11px var(--mono);color:var(--ink)}
-.tichu-point-cards{display:flex;flex-wrap:wrap;gap:4px;justify-content:flex-start}
-.tichu-point-cards .game-card.card-img{width:var(--card-face-w-trick);height:var(--card-face-h-trick);padding:0;cursor:default;pointer-events:none}
-.tichu-point-total{font:600 11px var(--mono);min-width:2.5em;text-align:right;color:#3a5040}
+.tichu-table-points{position:absolute;inset:0;pointer-events:none;z-index:1}
+.tichu-player-points{position:absolute;display:flex;flex-direction:column;align-items:center;gap:4px;max-width:min(240px,30vw)}
+.tichu-player-points.player-0{bottom:calc(var(--table-hand-height) + 28px);left:50%;transform:translateX(-50%)}
+.tichu-player-points.player-1{top:68px;left:50%;transform:translateX(-50%)}
+.tichu-player-points.player-2{left:clamp(10px,2vw,24px);top:50%;transform:translateY(-50%)}
+.tichu-player-points.player-3{right:clamp(10px,2vw,24px);top:50%;transform:translateY(-50%)}
+.tichu-player-points-cards{display:flex;flex-wrap:wrap;justify-content:center;gap:3px;padding:6px 8px;border-radius:8px;background:#0f2a2488;border:1px solid #ffffff22}
+.tichu-player-points-cards .game-card.card-img{width:var(--card-face-w-trick);height:var(--card-face-h-trick);padding:0;cursor:default;pointer-events:none;box-shadow:0 2px 6px #00000055}
+.tichu-player-points-total{font:600 10px var(--mono);color:#eef6f1;letter-spacing:.04em}
 .tichu-scoreboard-close{margin-top:12px;width:100%}
 .round-note-btn{border:0;background:transparent;font:inherit;color:var(--muted);cursor:pointer;padding:4px 8px;border-radius:6px;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:3px;text-decoration-color:#70827988}
 .round-note-btn:hover,.round-note-btn:focus-visible{color:var(--ink);background:#18372f0d;outline:2px solid #18372f33;outline-offset:2px}
@@ -678,10 +679,12 @@ body.in-game .header-auth-panel{top:71px;right:4vw}
 }
 .tichu-table .opponent.left .card-stack,
 .tichu-table .opponent.right .card-stack{
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
   margin-left:0;
+  margin-right:0;
+}
+.tichu-table .opponent.left,
+.tichu-table .opponent.right{
+  overflow:visible;
 }
 .bridge-table .hand:not(.dummy){
   justify-content:center;

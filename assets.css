@@ -46,22 +46,43 @@ img.back-card,
   margin-right: calc(var(--card-face-w) * -0.58);
 }
 
-/* Side opponents — vertical fan, centered in the side band */
+/* Side opponents — vertical fan; block layout so overlap collapses height (flex was clipping) */
 .opponent.left .card-stack,
 .opponent.right .card-stack {
-  flex-direction: column;
-  align-items: center;
-  max-height: min(46vh, 320px);
-  overflow: hidden;
-  justify-content: center;
+  display: block;
+  flex: none;
+  align-self: center;
+  width: calc(var(--card-face-w) * 0.68);
+  overflow: visible;
+  max-height: none;
+  --side-stack-h: calc(var(--card-face-h) * 0.68);
+  --side-stack-overlap: 0.76;
 }
+
+.opponent.left .card-stack[data-count="7"],
+.opponent.right .card-stack[data-count="7"] { --side-stack-overlap: 0.78; }
+.opponent.left .card-stack[data-count="8"],
+.opponent.right .card-stack[data-count="8"] { --side-stack-overlap: 0.81; }
+.opponent.left .card-stack[data-count="9"],
+.opponent.right .card-stack[data-count="9"] { --side-stack-overlap: 0.84; }
+.opponent.left .card-stack[data-count="10"],
+.opponent.right .card-stack[data-count="10"] { --side-stack-overlap: 0.86; }
+.opponent.left .card-stack[data-count="11"],
+.opponent.right .card-stack[data-count="11"] { --side-stack-overlap: 0.88; }
+.opponent.left .card-stack[data-count="12"],
+.opponent.right .card-stack[data-count="12"] { --side-stack-overlap: 0.89; }
+.opponent.left .card-stack[data-count="13"],
+.opponent.right .card-stack[data-count="13"] { --side-stack-overlap: 0.90; }
+.opponent.left .card-stack[data-count="14"],
+.opponent.right .card-stack[data-count="14"] { --side-stack-overlap: 0.91; }
 
 .opponent.left .card-stack img.back-card,
 .opponent.right .card-stack img.back-card {
-  width: calc(var(--card-face-w) * 0.7);
-  height: calc(var(--card-face-h) * 0.7);
+  display: block;
+  width: calc(var(--card-face-w) * 0.68);
+  height: var(--side-stack-h);
   margin-right: 0;
-  margin-top: calc(var(--card-face-h) * 0.7 * -0.8);
+  margin-top: calc(var(--side-stack-h) * var(--side-stack-overlap) * -1);
 }
 
 .opponent.left .card-stack img.back-card:first-child,
@@ -69,19 +90,39 @@ img.back-card,
   margin-top: 0;
 }
 
-/* Tighter overlap when many cards remain (side opponents) */
-.opponent.left .card-stack[data-count="10"] img.back-card,
-.opponent.left .card-stack[data-count="11"] img.back-card,
-.opponent.left .card-stack[data-count="12"] img.back-card,
-.opponent.left .card-stack[data-count="13"] img.back-card,
-.opponent.left .card-stack[data-count="14"] img.back-card,
-.opponent.right .card-stack[data-count="10"] img.back-card,
-.opponent.right .card-stack[data-count="11"] img.back-card,
-.opponent.right .card-stack[data-count="12"] img.back-card,
-.opponent.right .card-stack[data-count="13"] img.back-card,
-.opponent.right .card-stack[data-count="14"] img.back-card {
-  margin-top: calc(var(--card-face-h) * 0.7 * -0.86);
+.opponent.left .card-stack img.back-card:not(:first-child),
+.opponent.right .card-stack img.back-card:not(:first-child) {
+  position: relative;
 }
+
+.opponent.left .card-stack img.back-card:nth-child(1) { z-index: 1; }
+.opponent.left .card-stack img.back-card:nth-child(2) { z-index: 2; }
+.opponent.left .card-stack img.back-card:nth-child(3) { z-index: 3; }
+.opponent.left .card-stack img.back-card:nth-child(4) { z-index: 4; }
+.opponent.left .card-stack img.back-card:nth-child(5) { z-index: 5; }
+.opponent.left .card-stack img.back-card:nth-child(6) { z-index: 6; }
+.opponent.left .card-stack img.back-card:nth-child(7) { z-index: 7; }
+.opponent.left .card-stack img.back-card:nth-child(8) { z-index: 8; }
+.opponent.left .card-stack img.back-card:nth-child(9) { z-index: 9; }
+.opponent.left .card-stack img.back-card:nth-child(10) { z-index: 10; }
+.opponent.left .card-stack img.back-card:nth-child(11) { z-index: 11; }
+.opponent.left .card-stack img.back-card:nth-child(12) { z-index: 12; }
+.opponent.left .card-stack img.back-card:nth-child(13) { z-index: 13; }
+.opponent.left .card-stack img.back-card:nth-child(14) { z-index: 14; }
+.opponent.right .card-stack img.back-card:nth-child(1) { z-index: 1; }
+.opponent.right .card-stack img.back-card:nth-child(2) { z-index: 2; }
+.opponent.right .card-stack img.back-card:nth-child(3) { z-index: 3; }
+.opponent.right .card-stack img.back-card:nth-child(4) { z-index: 4; }
+.opponent.right .card-stack img.back-card:nth-child(5) { z-index: 5; }
+.opponent.right .card-stack img.back-card:nth-child(6) { z-index: 6; }
+.opponent.right .card-stack img.back-card:nth-child(7) { z-index: 7; }
+.opponent.right .card-stack img.back-card:nth-child(8) { z-index: 8; }
+.opponent.right .card-stack img.back-card:nth-child(9) { z-index: 9; }
+.opponent.right .card-stack img.back-card:nth-child(10) { z-index: 10; }
+.opponent.right .card-stack img.back-card:nth-child(11) { z-index: 11; }
+.opponent.right .card-stack img.back-card:nth-child(12) { z-index: 12; }
+.opponent.right .card-stack img.back-card:nth-child(13) { z-index: 13; }
+.opponent.right .card-stack img.back-card:nth-child(14) { z-index: 14; }
 
 .opponent.top .card-stack[data-count="10"] img.back-card,
 .opponent.top .card-stack[data-count="11"] img.back-card,
