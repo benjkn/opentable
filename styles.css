@@ -207,8 +207,12 @@ body.in-game .header-auth-panel{top:71px;right:4vw}
 .tichu-avatar-call{position:absolute;right:-6px;bottom:-4px;display:flex;pointer-events:none}
 .tichu-avatar-call .tichu-call-badge{box-shadow:0 2px 6px #0006}
 .tichu-received-panel{top:44%;z-index:4}
-.tichu-received-cards{display:flex;justify-content:center;gap:6px;margin:8px 0 4px;flex-wrap:wrap}
+.tichu-received-cards{display:flex;justify-content:center;align-items:flex-end;gap:clamp(10px,2vw,18px);margin:8px 0 4px;flex-wrap:wrap}
+.tichu-received-slot{display:flex;flex-direction:column;align-items:center;gap:4px}
+.tichu-received-slot em{font:9px var(--mono);color:#63746c;font-style:normal;letter-spacing:.04em}
 .tichu-received-cards .game-card.card-img{width:var(--card-face-w-trick);height:var(--card-face-h-trick)}
+.tichu-dragon-picker .dragon-btn-row{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-top:10px}
+.tichu-dragon-picker .dragon-btn{min-width:5.5em;padding:8px 14px}
 .tichu-bomb-btn{border:0;border-radius:6px;background:linear-gradient(135deg,#e85a45,#c42820);color:#fffaf1;padding:8px 12px;font:700 10px var(--mono);letter-spacing:.12em;cursor:pointer;box-shadow:0 2px 8px #8a181855;flex:0 0 auto}
 .tichu-bomb-btn:hover{filter:brightness(1.06)}
 .tichu-play-controls .tichu-bomb-btn{align-self:stretch}
@@ -217,6 +221,14 @@ body.in-game .header-auth-panel{top:71px;right:4vw}
 .tichu-scoreboard-overlay .hearts-scorecard{position:relative;z-index:1;left:auto;top:auto;transform:none;max-height:calc(100% - 24px)}
 .tichu-score-teams{margin:-4px 0 12px;color:#63746c;font:10px var(--mono)}
 .tichu-score-empty{margin:0 0 8px;color:#63746c;font:11px var(--mono)}
+.tichu-hand-points{margin:0 0 14px;padding-top:2px}
+.tichu-hand-points .eyebrow{margin:0 0 8px;color:#63746c;font:9px var(--mono);letter-spacing:.08em;text-transform:uppercase}
+.tichu-point-row{display:grid;grid-template-columns:minmax(3.2em,auto) 1fr auto;gap:8px;align-items:center;margin-bottom:8px}
+.tichu-point-row:last-child{margin-bottom:0}
+.tichu-point-name{font:600 11px var(--mono);color:var(--ink)}
+.tichu-point-cards{display:flex;flex-wrap:wrap;gap:4px;justify-content:flex-start}
+.tichu-point-cards .game-card.card-img{width:var(--card-face-w-trick);height:var(--card-face-h-trick);padding:0;cursor:default;pointer-events:none}
+.tichu-point-total{font:600 11px var(--mono);min-width:2.5em;text-align:right;color:#3a5040}
 .tichu-scoreboard-close{margin-top:12px;width:100%}
 .round-note-btn{border:0;background:transparent;font:inherit;color:var(--muted);cursor:pointer;padding:4px 8px;border-radius:6px;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:3px;text-decoration-color:#70827988}
 .round-note-btn:hover,.round-note-btn:focus-visible{color:var(--ink);background:#18372f0d;outline:2px solid #18372f33;outline-offset:2px}
